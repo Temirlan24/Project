@@ -10,21 +10,19 @@
     <Grid>
         <Image x:Name="Picture" HorizontalAlignment="Left" Height="158" Margin="10,10,0,0" VerticalAlignment="Top" Width="140"/>
         <TextBlock HorizontalAlignment="Left" Margin="160,10,0,0" Text="Название блюда:" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
-        <TextBox x:Name="FoodNameTB" HorizontalAlignment="Left" Margin="160,31,0,0" Text="нб" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
+        <TextBox x:Name="FoodNameTB" HorizontalAlignment="Left" Margin="160,31,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
         <TextBlock HorizontalAlignment="Left" Margin="161,52,0,0" Text="Среднее время готовки:" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
-        <TextBox x:Name="AVGTB" HorizontalAlignment="Left" Margin="160,73,0,0" Text="свг" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
+        <TextBox x:Name="AVGTB" HorizontalAlignment="Left" Margin="160,73,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
         <TextBlock HorizontalAlignment="Left" Margin="160,94,0,0" Text="Тип блюда:" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
-        <TextBox x:Name="TypeOfFoodTB" HorizontalAlignment="Left" Margin="161,110,0,0" Text="тб" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
+        <TextBox x:Name="TypeOfFoodTB" HorizontalAlignment="Left" Margin="161,110,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
         <TextBlock HorizontalAlignment="Left" Margin="161,131,0,0" Text="Тип кухни:" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
-        <TextBox x:Name="TypeOfKitchenTB" HorizontalAlignment="Left" Margin="162,147,0,0" Text="тк" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="TypeOfKitchenTB" HorizontalAlignment="Left" Margin="162,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
         <TextBox x:Name="CompositionOfTheDishLB" Margin="10,201,10,284" Foreground="White" Background="Black"/>
         <TextBox x:Name="StepByStepCookingLB" Margin="10,361,10,60" Foreground="White" Background="Black"/>
         <Label Content="Состав блюда:" HorizontalAlignment="Left" Margin="7,175,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,1.003"/>
         <Label Content="Пошаговое приготовление:" HorizontalAlignment="Left" Margin="10,335,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,1.003"/>
-
-
-        <Button Content="Добавить фото" HorizontalAlignment="Left" Margin="226,175,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="102,568,0,0" VerticalAlignment="Top" Height="19" Width="135"/>
+        <Button Content="Добавить фото" HorizontalAlignment="Left" Margin="213,175,0,0" VerticalAlignment="Top" Click="Button_Click" Width="100"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="102,568,0,0" VerticalAlignment="Top" Height="19" Width="135" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

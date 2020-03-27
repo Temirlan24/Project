@@ -38,5 +38,17 @@ namespace WpfApp5
                 Picture.Source = bitmap;
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AddRecipeWindow arw = new AddRecipeWindow();
+            FoodNameTB.Text = arw.FoodName;
+            AVGTB.Text = arw.FoodAvg;
+            TypeOfFoodTB.Text = arw.TypeOfFood;
+            TypeOfKitchenTB.Text = arw.TypeOfKitchen;
+            CompositionOfTheDishLB.Text = arw.CompositionOfTheDish;
+            StepByStepCookingLB.Text = arw.StepByStepCooking;
+
+        }
     }
 }
