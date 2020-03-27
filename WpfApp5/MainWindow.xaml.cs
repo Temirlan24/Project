@@ -24,5 +24,17 @@ namespace WpfApp5
         {
             InitializeComponent();
         }
+
+        private void AddRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            RecipeWindow recipe = new RecipeWindow();
+            recipe.Show();
+        }
+
+        private void ExportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Export export = new Export();
+            export.Show();
+        }
     }
 }
