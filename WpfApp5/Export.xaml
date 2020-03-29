@@ -9,9 +9,9 @@
         Title="Export" Height="150" Width="320">
     <Grid>
         <Label Content="Экспортирование рецепта" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
-        <Button Content=".doc" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="26" Width="130"/>
+        <Button Content=".doc" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="26" Width="130" Click="Button_Click"/>
         <Button Content=".docx" HorizontalAlignment="Left" Margin="167,41,0,0" VerticalAlignment="Top" Height="26" Width="130"/>
-        <Button Content="pdf" HorizontalAlignment="Center" Margin="0,79,0,0" VerticalAlignment="Top" Height="26" Width="287"/>
+        <Button Content="pdf" HorizontalAlignment="Center" Margin="0,79,0,0" VerticalAlignment="Top" Height="26" Width="287" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

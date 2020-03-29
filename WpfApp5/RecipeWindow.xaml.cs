@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp5;
 
 namespace WpfApp5
 {
@@ -18,8 +21,10 @@ namespace WpfApp5
     /// </summary>
     public partial class RecipeWindow : Window
     {
+        List<AddRecipeWindow> recipeWindows;
         public RecipeWindow()
         {
+            
             InitializeComponent();
         }
 
@@ -37,18 +42,25 @@ namespace WpfApp5
                 bitmap.EndInit();
                 Picture.Source = bitmap;
             }
+        
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            AddRecipeWindow arw = new AddRecipeWindow();
-            FoodNameTB.Text = arw.FoodName;
-            AVGTB.Text = arw.FoodAvg;
-            TypeOfFoodTB.Text = arw.TypeOfFood;
-            TypeOfKitchenTB.Text = arw.TypeOfKitchen;
-            CompositionOfTheDishLB.Text = arw.CompositionOfTheDish;
-            StepByStepCookingLB.Text = arw.StepByStepCooking;
-
+            MainWindow main = new MainWindow();
+            AddRecipeWindow arw = new AddRecipeWindow{
+                FoodName = FoodNameTB.Text,
+                FoodAvg = AVGTB.Text,
+                TypeOfFood = TypeOfFoodTB.Text,
+                TypeOfKitchen = TypeOfKitchenTB.Text,
+                CompositionOfTheDish = CompositionOfTheDishLB.Text,
+                StepByStepCooking = StepByStepCookingLB.Text
+            };
+            recipeWindows = new List<AddRecipeWindow>();
+            recipeWindows.Add(arw);
+           
+            main.lstView.Items.Add(arw);
+            this.Close();
         }
     }
 }
