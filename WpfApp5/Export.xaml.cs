@@ -1,20 +1,9 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System;
-using System.Collections.Generic;
-using System.Data;
 using System.IO;
-//using System.Reflection.Metadata;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
+using Document = iTextSharp.text.Document;
+using Word = Microsoft.Office.Interop.Word;
 namespace WpfApp5
 {
     /// <summary>
@@ -22,6 +11,7 @@ namespace WpfApp5
     /// </summary>
     public partial class Export : Window
     {
+        private string FileName = @"D:\text.docx";
         public Export()
         {
             InitializeComponent();
@@ -29,49 +19,39 @@ namespace WpfApp5
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            var objWord = new Word.Application();
+            objWord.Visible = false;
+            try
+            {
+                Word.Document objDoc = objWord.Documents.Add();
+                var doc = objWord.Documents.Open(FileName);
+                Word.Paragraph objPar;
+                objPar = objDoc.Paragraphs.Add();
+                objPar.Range.Text = "Danildanildanil";
+                doc.SaveAs(@"D:\result.docx");
+                doc.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка");
+            }
+
+            finally
+            {
+                objWord.Quit();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-           
-        DataTable dt = new DataTable();
-            Document document = new Document();
-        PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(@"D:\sample.pdf", FileMode.Create));
-        document.Open();
 
-            iTextSharp.text.Font font5 = iTextSharp.text.FontFactory.GetFont(FontFactory.HELVETICA, 5);
-
-        PdfPTable table = new PdfPTable(dt.Columns.Count);
-        PdfPRow row = null;
-        float[] widths = new float[] { 4f, 4f, 4f, 4f };
-
-        table.SetWidths(widths);
-
-            table.WidthPercentage = 100;
-            int iCol = 0;
-        string colname = "";
-        PdfPCell cell = new PdfPCell(new Phrase("Products"));
-
-        cell.Colspan = dt.Columns.Count;
-
-            foreach (DataColumn c in dt.Columns)
-            {
-                table.AddCell(new Phrase(c.ColumnName, font5));
-            }
-
-            foreach (DataRow r in dt.Rows)
-            {
-                if (dt.Rows.Count > 0)
-                {
-                    table.AddCell(new Phrase(r[0].ToString(), font5));
-                    table.AddCell(new Phrase(r[1].ToString(), font5));
-                    table.AddCell(new Phrase(r[2].ToString(), font5));
-                    table.AddCell(new Phrase(r[3].ToString(), font5));
-                }
-            }
-            document.Add(table);
-            document.Close();
+            Document doc = new Document();
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Test.pdf", FileMode.Create));
+            doc.Open();
+            Paragraph par = new Paragraph("Me name is Danil");
+            doc.Add(par);
+            doc.Close();
+            MessageBox.Show("Ok");
         }
     }
 }

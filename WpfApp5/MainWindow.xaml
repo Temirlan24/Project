@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp5"
         ResizeMode="NoResize"
-        
+        mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="381">
     <Grid>
         <Button x:Name="FirstCourse" Content="Первые блюда" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="116" Foreground="White" Background="Black" />
@@ -16,11 +16,11 @@
         <Button x:Name="AddRecipe" Content="Добавить рецепт" HorizontalAlignment="Left" Margin="204,521,0,0" VerticalAlignment="Top" Width="170" Foreground="White" Background="Black" Click="AddRecipe_Click" />
         <Button x:Name="ExportBtn"  Content="Экспортировать" HorizontalAlignment="Left" Margin="204,555,0,0" VerticalAlignment="Top" Width="170" Click="ExportBtn_Click" Height="19"/>
         <Button x:Name="EditBtn"  Content="Редактировать" HorizontalAlignment="Left" Margin="10,555,0,0" VerticalAlignment="Top" Width="170"/>
-        <ListView x:Name="lstView" Foreground="White" Background="Black" Margin="10,73,10,127" ItemsSource="{Binding recipeWindows}">
+        <ListView x:Name="lstView" Foreground="White" Background="Black" Margin="10,73,10,127" ItemsSource="{Binding recipeWindows}" SelectionChanged="lstView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="TypeOfFood" Width="150" DisplayMemberBinding="{Binding TypeOfFood}"/>
-                    <GridViewColumn Header="FoodName" Width="205" DisplayMemberBinding="{Binding FoodName}"/>
+                    <GridViewColumn Header="TypeOfFood" Width="150" DisplayMemberBinding="{Binding Path=TypeOfFood}"/>
+                    <GridViewColumn Header="FoodName" Width="205" DisplayMemberBinding="{Binding Path=FoodName}"/>
                 </GridView>
             </ListView.View>
          </ListView>

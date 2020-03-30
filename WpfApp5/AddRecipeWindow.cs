@@ -12,5 +12,6 @@ namespace WpfApp5
         public string TypeOfKitchen { get; set; }
         public string CompositionOfTheDish { get; set; }
         public string StepByStepCooking { get; set; }
+       // public string ImageUrl { get; set; }
     }
 }
