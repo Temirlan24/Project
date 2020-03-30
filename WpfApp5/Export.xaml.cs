@@ -2,11 +2,13 @@
 using iTextSharp.text.pdf;
 using javax.print;
 using Magnum.FileSystem;
+using Spire.Doc;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using Xceed.Words.NET;
 using Document = iTextSharp.text.Document;
+using Section = Spire.Doc.Section;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace WpfApp5
@@ -17,8 +19,7 @@ namespace WpfApp5
     public partial class Export : Window
     {
         RecipeWindow recipeWindow = new RecipeWindow();
-        MainWindow mainWindow = new MainWindow();
-        private string FileName = @"D:\text.docx";
+        
         public Export()
         {
             InitializeComponent();
@@ -48,15 +49,22 @@ namespace WpfApp5
             //    objWord.Quit();
             //}
 
-            string FileName = "danilllllll.doc";
-            var doc = Doc.Create(FileName);
-            doc.InsertParagraph("Hi EveryOne");
+            //string FileName = "danilllllll.doc";
+            //var doc = Doc.Create(FileName).ToString();
+            //doc.InsertParagraph(recipeWindow.recipeWindows.ToString());
 
 
-            doc.Save();
+            //doc.Save();
 
-            Process.Start("WpfApp5.EXE", FileName);
+            //Process.Start("WpfApp5.EXE", FileName);
 
+
+            Document doc = new Document();
+            Section section = doc.AddSection();
+            Paragraph Para = section.AddParagraph();
+            Para.Content(recipeWindow.recipeWindows.ToString());
+            doc.SaveToFile("MyWord.doc", FileFormat.Doc);
+            System.Diagnostics.Process.Start("MyWord.docx");
         }
 
         private void btnPdf_Click_1(object sender, RoutedEventArgs e)
@@ -64,9 +72,9 @@ namespace WpfApp5
             Document doc = new Document();
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Test.pdf", FileMode.Create));
             doc.Open();
-            Paragraph par = new Paragraph(mainWindow.ContentStringFormat);
+            Paragraph par = new Paragraph(recipeWindow.recipeWindows.ToString());
             doc.Add(par);
-            MessageBox.Show("Ok");
+            MessageBox.Show("Всё верно!");
             doc.Close();
         }
 
@@ -74,7 +82,7 @@ namespace WpfApp5
         {
             string FileName = "danilllllll.docx";
             var doc = DocX.Create(FileName);
-            doc.InsertParagraph("Hi EveryOne");
+            doc.InsertParagraph(recipeWindow.recipeWindows.ToString());
 
 
             doc.Save();
